@@ -1,44 +1,46 @@
 <template>
-<h3>{{ title }}</h3>
-<p>Welcome.............</p>
-<div v-if="showModal">
-  <Modal :header="header" :text="text" :theme="theme" @closeModal="toggleModal"/>
-</div>
-<br>
-<button @click="toggleModal">
-Show Modal
+  <h1>{{ title }}</h1>
+  <p>Welcome.............</p>
+  <div v-if="showModal">
+    <Modal @closeModal="toggleModal" :theme="theme">
+      <h1>Njaanuary Giveaway!!</h1>
+      <p>Step up your shoe-game at half the price</p>
 
-</button>
-
+      <template v-slot:links>
+        <a href="#">Sign Up Now</a>
+        <a href="#">Learn More..</a>
+      </template>
+    </Modal>
+  </div>
+  <br />
+  <button @click="toggleModal">Show Modal</button>
 </template>
 
 <script>
-import Modal from './components/Modal.vue'
+import Modal from "./components/Modal.vue";
 export default {
-  name: 'App',
+  name: "App",
 
-data(){
-  return {
-    title:'Vue CLI',
-    header:'Njaanuary sale!!!',
-    text:'Step up your shoe-game on at half price',
-    theme:'sale',
-    showModal:false
-  }
-},
-methods:{
-  toggleModal(){
-    this.showModal = !this.showModal
-  }
+  data() {
+    return {
+      title: "Vuejs App",
+      header: "Njaanuary sale!!!",
+      text: "Step up your shoe-game on at half price",
+      theme: "sale",
+      showModal: false,
+    };
+  },
+  methods: {
+    toggleModal() {
+      this.showModal = !this.showModal;
+    },
+  },
 
-},
-
-components:{Modal}
-}
-
+  components: { Modal },
+};
 </script>
 
-<style>
+<style >
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
