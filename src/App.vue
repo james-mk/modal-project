@@ -1,6 +1,14 @@
 <template>
 <h3>{{ title }}</h3>
-<Modal />
+<p>Welcome.............</p>
+<div v-if="showModal">
+  <Modal :header="header" :text="text" :theme="theme" @closeModal="toggleModal"/>
+</div>
+<br>
+<button @click="toggleModal">
+Show Modal
+
+</button>
 
 </template>
 
@@ -11,11 +19,23 @@ export default {
 
 data(){
   return {
-    title:'Vue CLI'
+    title:'Vue CLI',
+    header:'Njaanuary sale!!!',
+    text:'Step up your shoe-game on at half price',
+    theme:'sale',
+    showModal:false
   }
 },
+methods:{
+  toggleModal(){
+    this.showModal = !this.showModal
+  }
+
+},
+
 components:{Modal}
 }
+
 </script>
 
 <style>
